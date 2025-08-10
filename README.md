@@ -11,8 +11,18 @@ Predicting short-term stock movements is a challenging problem in finance. This 
 - Source: Yahoo Finance via `yfinance`  
 - Period: January 1, 2020 – July 31, 2025
 
-## Features
-Includes daily returns, moving averages, momentum indicators, volatility measures, RSI, MACD, and lagged returns.
+## Features 
+| Feature Name           | Description                                      | Lookback Window (days)  |
+|-----------------------|------------------------------------------------|------------------------|
+| Daily Return          | Percentage price change from previous day       | 1                      |
+| 5-day Moving Average  | Average close price over the past 5 days        | 5                      |
+| 10-day Moving Average | Average close price over the past 10 days       | 10                     |
+| Momentum (5-day)      | Difference between today’s and 5 days ago close | 5                      |
+| Rolling Std Dev (10-day) | Standard deviation of close prices over 10 days | 10                     |
+| Average True Range (ATR) | Measure of volatility over 14 days             | 14                     |
+| Relative Strength Index (RSI) | Momentum oscillator over 14 days           | 14                     |
+| Lagged Return (1-day) | Previous day’s return                            | 1                      |
+| MACD                  | Moving Average Convergence Divergence indicator | 26 (slow EMA)  |
 
 ## Model Performance Summary
 The logistic regression model achieves around **56% accuracy**, outperforming random guessing. It is better at predicting upward price movements (with higher recall and F1-score) but struggles to identify downward movements, indicating potential class imbalance or room for improved feature engineering.
